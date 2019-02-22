@@ -2,7 +2,7 @@
 Jetfire provides custom SQL functions to ease the development of recipes. When a function expects `var_args` it means it allows variable number of arguments of any type, including star `*`. In addition Spark got a huge set of built-in functions which are documented here https://spark.apache.org/docs/2.4.0/api/sql.
 
 ### `field_names(var_args): Array<String>`
-Returns an array of the fields name of a struct or row.
+Returns an array of the field names of a struct or row.
 #### Example
 ```sql
 select field_names(*) from mydb.mytable
