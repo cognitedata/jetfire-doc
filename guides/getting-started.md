@@ -10,11 +10,11 @@ After logging in, you'll see the explore editor. Here you can explore [Raw](../c
 Clicking the transform menu item brings you to a list of transformations. Since this is your first time, the list is empty. Click the new transform button to create a new transformation.
 
 ## Recipe editor
-After creating a transformation, you'll see the recipe editor.
+After creating a transformation, you'll see the recipe editor. Every change you do in this view is auto-saved.
 
 ![transform_editor](02_transform_editor.png)
 
-Your goal is to make a query that matches the target schema, so that you can transform to that target. When that's done, head over at the 'Transform' section to configure the recipe, as choosing destination. The transform button is only enable if the recipe and the configuration is valid. Clicking it will trigger a job executing the given tranformation. You will also see metrics tied to the job in the same view. Note it can take a while before the metrics are shown.
+Your goal is to make a query that matches the target schema, so that you can transform to that target. When that's done, head over at the 'Transform' section to configure the recipe, as choosing destination. The transform button is only enabled if the recipe and the configuration are valid. Clicking it will trigger a job executing the given tranformation. You will also see metrics tied to the job in the same view. **Note** it can take a while before the metrics are shown.
 
 ## Further reading
 * [Jetfire SQL Functions](../concepts/jetfire-sql-functions.md)
