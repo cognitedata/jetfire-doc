@@ -1,5 +1,8 @@
 # FAQ
 
+## What functions do I've access to in my SQL?
+See [Jetfire SQL Functions](../concepts/jetfire-sql-functions.md)
+
 ## I know there is data in my table, why can't I see it in Jetfire?
 In order to see data in Jetfire, you need to use an api-key with the right to see that data. For raw that would be RAW_READ access. You can check here, whether you have that or not.
 
