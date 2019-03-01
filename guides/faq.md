@@ -30,44 +30,7 @@ select string(id) as key, string(id) as UID, string(parentId) as parentUID, name
 * Go to https://admin.cogniteapp.com/pipelines, log in with your target tenants credentials and create an asset purgatory pipeline on the target table of that last job
 
 ## How to schedule a transformation
-**There is no incremental load, so this will do full data set for each iteration! Be considerate!**
-
-#### Step-by-Step instructions
-* Create the transform you want to schedule and run it once with the correct destination etc. (These settings will be stored and used when scheduled)
-* Write down the ID of your transform ![](03_transform_url.png)
-* Send a POST request in this format, where interval is the schedule in cron format with 5 vars.
-```sh
-curl -X POST \
-https://jetfire.cogniteapp.com/api/schedule/config/{{ID of your transformation}}\
--H 'Content-Type: application/json' \
--H 'api-key: {{api-key}}' \
--H 'cache-control: no-cache' \
--d '{ "interval": "* * * * *" }'
-```
-Real world example:
-```sh
-curl -X POST \
-  https://jetfire.cogniteapp.com/api/schedule/config/92 \
-  -H 'Content-Type: application/json' \
-  -H 'api-key: WfHzzHnmIKIZgnMkujhggbNPJkmjkHjmkHbHhj' \
-  -H 'cache-control: no-cache' \
-  -d '{ "interval": "0 0 * * *" }'
-```
-
-Available calls:
-
-* GET -> https://jetfire.cogniteapp.com/api/schedule/config/{{ID of your transformation}}
-Get information about a scheduled config
-
-
-* POST -> https://jetfire.cogniteapp.com/api/schedule/config/{{ID of your transformation}}
-Create a new schedule for the config (only one schedule is supported per config). The body should be
-{ "interval": "* * * * *" // Cron formatted interval }
-
-
-* DELETE -> https://jetfire.cogniteapp.com/api/schedule/config/{{ID of your transformation}}
-Delete a schedule
-
+Use the scheduling interface, more information can be found [here](../concepts/schedule.md).
 
 ## How can I put weird db-, column-, or field names?
 Use backticks: 
