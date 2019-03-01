@@ -17,4 +17,5 @@ After creating a transformation, you'll see the recipe editor. Every change you 
 Your goal is to make a query that matches the target schema, so that you can transform to that target. When that's done, head over at the 'Transform' section to configure the recipe, as choosing destination. The transform button is only enabled if the recipe and the configuration are valid. Clicking it will trigger a job executing the given tranformation. You will also see metrics tied to the job in the same view. **Note** it can take a while before the metrics are shown.
 
 ## Further reading
+* [Basic concepts](../concepts/basics.md)
 * [Jetfire SQL Functions](../concepts/jetfire-sql-functions.md)
