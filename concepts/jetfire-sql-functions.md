@@ -19,6 +19,7 @@ Casts the arguments to an array of strings. It handles array, struct and map typ
 select cast_to_strings(*) from mydb.mytable
 -- Returns the values of all columns in 'mydb.mytable' as strings
 ```
+
 ### `to_metadata(var_args): Map<String, String>`
 Creates metadata compatible type from the arguments. In practice it does `map_from_arrays(get_names(var_args), cast_to_strings(var_args))`. This function is convenient when you want to easily transform your columns or structures into a format that fits the metadata field found in CDP. 
 #### Example
@@ -26,6 +27,17 @@ Creates metadata compatible type from the arguments. In practice it does `map_fr
 select to_metadata(*) from mydb.mytable
 -- Creates a metadata structure from all the columns found in 'mydb.mytable'
 ```
+
+### `to_metadata_except(excludeFilter: Array<String>, var_args)`
+Returns a metadata structure (`Map<String, String>`) where strings found in `excludeFilter` will exclude keys found in `var_args`.
+It's convenient when you want to put most of the columns into metadata, but not all of them, eg. `to_metadata_except(array("someColInStarToExclude"), *)`
+
+#### Example
+```sql
+select to_metadata_except(array("myCol"), myCol, testCol) from mydb.mytable
+-- Will create a map where myCol is filtered out, eg. the result will in this case be Map("testCol" -> testCol.value.toString) 
+```
+
 ### `asset_ids(assetNames: Array<String>, rootAssetName: String): Array<BigInt>`
 Tries to find matching asset names in the asset hierarchy which as root asset name as root. It will return the ids of the assets matched. **Note** currently it will abort the job if there were no match. See [Assets](https://doc.cognitedata.com/concepts/#assets) for more information about what is an Asset in CDP. 
 
