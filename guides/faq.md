@@ -17,7 +17,7 @@ select * from _cdp.asset
 ```
 
 ## How to copy an asset hierarchy from one tenant to another?
-* Go to <https://transformers.cogniteapp.com> with your source tenants api key.
+* Go to <https://jetfire.cogniteapp.com/#/transform> with your source tenants api key.
 * Create a transform:
 ```sql
 select string(id) as key, string(id) as UID, string(parentId) as parentUID, name, description as description, to_json(metadata) as metadata from _cdp.asset
@@ -25,7 +25,7 @@ select string(id) as key, string(id) as UID, string(parentId) as parentUID, name
 * Choose "asset preparation" from the drop down and click the "transform"-button
 * Enter the api key of your target tenant, enter some existing db name, enter some table name
 * Click "transform" and watch the job at Jobs tab
-* When it says it finished, login to <https://transformers.cogniteapp.com> with your target tenant's api key
+* When it says it finished, login to <https://jetfire.cogniteapp.com/#/transform> with your target tenant's api key
 * Check if the data is there
 * Go to https://admin.cogniteapp.com/pipelines, log in with your target tenants credentials and create an asset purgatory pipeline on the target table of that last job
 
