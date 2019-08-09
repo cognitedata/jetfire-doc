@@ -9,5 +9,7 @@ select * from someTable where is_new("someTable", lastChanged)
 ```
 The query above will in the first run process all the rows of someTable, however in the second run it will only process what is new. The `"someTable"` is the name of the `is_new` filter and can be set to anything. It's used to differentiate multiple `is_new` calls in the same query, so that one can do `is_new` filtering on more than one table. Therefore it's best practice to use the name of the relation as the name of the `is_new` filter. 
 
+**NOTE** `is_new` will always return true in preview, for ease of development of the transformation.  
+
 ### Backfill
 Sometimes you will want to process all the data again, even though nothing has changed, this is also called backfill. How to do that today, is by changing the `is_new` filter name, for example by adding a postfix with an incrementing number (`"someTable_23"`). 
