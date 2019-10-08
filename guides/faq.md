@@ -7,13 +7,13 @@ See [Jetfire SQL Functions](../concepts/jetfire-sql-functions.md)
 In order to see data in Jetfire, you need to use an api-key with the right to see that data. For raw that would be RAW_READ access. You can check here, whether you have that or not.
 
 ## How to access data from CLEAN?
-* Assets: _cdp.asset
-* Events: _cdp.event
-* Datapoints: _cdp.datapoints where name = 'some_timeseries'
-* Timeseries metadata: _cdp.timeseries
+* Assets: _cdf.asset
+* Events: _cdf.event
+* Datapoints: _cdf.datapoints where name = 'some_timeseries'
+* Timeseries metadata: _cdf.timeseries
 #### Example
 ```sql
-select * from _cdp.asset
+select * from _cdf.asset
 ```
 
 ## How to copy an asset hierarchy from one tenant to another?
