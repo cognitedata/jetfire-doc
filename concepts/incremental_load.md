@@ -7,7 +7,7 @@ When you query a Raw table in Jetfire, you will have one column for key and one 
 ```sql
 select * from someTable where is_new("someTable", lastChanged)
 ```
-The query above will in the first transformation process all the rows of someTable, however in the second run it will only process what is new. The `"someTable"` is the name of the `is_new` filter and can be set to anything. It's used to differentiate multiple `is_new` calls in the same query, so that one can do `is_new` filtering on more than one table. Therefore it's best practice to use the name of the relation as the name of the `is_new` filter. 
+The query above will in the first transformation process all the rows of someTable, however in the second run it will only process what is new. The `"someTable"` is the name of the `is_new` filter and can be set to anything. It's used to differentiate multiple `is_new` calls in the same query, so that one can do `is_new` filtering on more than one table. Therefore it's best practice to use the name of the relation as the name of the `is_new` filter. **NOTE** As of now the database name and table name should be split with `_` instead of `.`, because of a bug with how we handle relation names. 
 
 If the transformation fails, `is_new` will filter the same rows the next time the transformation is triggered. This is to ensure that there is no data loss in the transformation from source to destination.
 
